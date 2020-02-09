@@ -2,7 +2,7 @@
 /**
  * PDF-Tools
  *
- * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
+ * @license    MIT
  * @author     Gero Gothe <practical@medizin-lernen.de>
  */
 // must be run within Dokuwiki
