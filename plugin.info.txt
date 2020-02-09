@@ -1,0 +1,7 @@
+base   pdftools
+author Gero Gothe
+email  practical@medizin-lernen.de
+date   2020-02-09
+name   PDF-Tools for dw2pdf
+desc   Few simple features for PDF-Generation (requires dw2pdf)
+url    https://github.com/practical-solutions/pdftools
