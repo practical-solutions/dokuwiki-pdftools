@@ -28,6 +28,11 @@ Ist das wrap-Plugin installiert, so kann man folgende zusätzliche wrap-Klassen 
     Tabelle auf 100% Seitenbreite
     | Inhalt | Noch ein Inhalt |
     </WRAP>
+    
+    <WRAP formular>
+    Tabelle ohne Ränder
+    | Beispiel | Okay |
+    </WRAP>
 
     <wrap bigtext>Skaliert den Text auf 115%</wrap>
 
