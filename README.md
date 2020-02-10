@@ -20,6 +20,20 @@ Aktuell wird eine Abbildung erzeugt, damit kein Text, welches in der Suche relev
 
 Wird durch eine Abbildung ersetzt, welches in etwa die Größe eines (Klebe-)Etiketts besitzt. Dies erleichtert die Erstellung von Formularen für einfache Anwender.
 
+## Zusätzliche wrap-container
+
+Ist das wrap-Plugin installiert, so kann man folgende zusätzliche wrap-Klassen verwenden:
+
+    <WRAP maxtabelle>
+    Tabelle auf 100% Seitenbreite
+    | Inhalt | Noch ein Inhalt |
+    </WRAP>
+
+    <wrap bigtext>Skaliert den Text auf 115%</wrap>
+
+    <wrap smalltext>Skaliert den Text auf 90%</wrap>
+
+
 ## Ausblick
 Funktionen, welche in kommenden Versionen dazukommen sollen:
 * Mehrere dw2pdf templates

@@ -1,0 +1,19 @@
+.boxed {
+    display:inline-block;
+    border: 1px solid red;
+    background: pink;
+    padding: 5px;
+    margin:3px;
+}
+
+.wrap_maxtabelle table{width:100%;}
+
+.wrap_formular table, .wrap_formular td, .wrap_formular tr, .wrap_formular tbody{
+	border:none;
+	background:none;
+	border-color:white;
+}
+
+.wrap_bigtext {font-size:115%;}
+
+.wrap_smalltext {font-size:90%;}

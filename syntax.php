@@ -31,6 +31,30 @@ class syntax_plugin_pdftools extends DokuWiki_Syntax_Plugin {
   		}
   	}
 
+    # Returns list of installed dw2pdf-templates
+    function templateList(){
+        if ($this->dw2pdf_inst) {
+
+            $path = DOKU_PLUGIN."/dw2pdf/tpl/";
+
+            $dirs = array();
+
+            // directory handle
+            $dir = dir($path);
+
+            while (false !== ($entry = $dir->read())) {
+                if ($entry != '.' && $entry != '..') {
+                    if (is_dir($path . '/' .$entry)) {
+                        $dirs[] = $entry;
+                    }
+                }
+            }
+
+            return $dirs;
+        }
+        return false;
+    }
+
     # Add patterns
     function connectTo($mode) {
         $this->Lexer->addEntryPattern('<pdf (?=.*?>)',$mode,'plugin_pdftools');
@@ -62,13 +86,22 @@ class syntax_plugin_pdftools extends DokuWiki_Syntax_Plugin {
           return true;
         }
 
+
         if (!$this->dw2pdf_inst) {
     			$renderer->doc .= '<i class="noprint">Plugin <u>dw2pdf</u> benötigt.</i><br>';
     		} else {
           if ($state == DOKU_LEXER_UNMATCHED) {
-            $renderer->doc .= "<div class='noprint'>
-                               <a href='doku.php?id=$ID&do=export_pdf&toc=0&tpl=$match'>";
-            $renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/pdfbutton.php?text='.$match.'"></a></div>';
+              $t=$this->templateList();
+              if (!in_array($match,$t)) {
+                  $msg = "Vorlage '<u>$match</u>' existiert nicht. Bitte einer der folgende Vorlagen verwenden:<br>";
+                  $msg .= '<b>'.implode(", ",$t).'</b>';
+
+                  $renderer->doc .= "<div class='noprint boxed'>$msg</div>";
+              } else {
+                  $renderer->doc .= "<div class='noprint'>
+                                    <a href='doku.php?id=$ID&do=export_pdf&toc=0&tpl=$match'>";
+                  $renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/pdfbutton.php?text='.$match.'"></a></div>';
+              }
           }
 
         }
