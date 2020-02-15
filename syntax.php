@@ -92,6 +92,14 @@ class syntax_plugin_pdftools extends DokuWiki_Syntax_Plugin {
     		} else {
           if ($state == DOKU_LEXER_UNMATCHED) {
               $t=$this->templateList();
+              
+              # The tag "quer" creates landscape orientation
+              if (strpos($match,"quer")>0) {
+				  $quer = '&orientation=landscape';
+				  $match = str_replace("quer","",$match);
+				  $match = trim($match);
+			  } else $quer = '';
+              
               if (!in_array($match,$t)) {
                   $msg = "Vorlage '<u>$match</u>' existiert nicht. Bitte einer der folgende Vorlagen verwenden:<br>";
                   $msg .= '<b>'.implode(", ",$t).'</b>';
@@ -99,7 +107,7 @@ class syntax_plugin_pdftools extends DokuWiki_Syntax_Plugin {
                   $renderer->doc .= "<div class='noprint boxed'>$msg</div>";
               } else {
                   $renderer->doc .= "<div class='noprint'>
-                                    <a href='doku.php?id=$ID&do=export_pdf&toc=0&tpl=$match'>";
+                                    <a href='doku.php?id=$ID&do=export_pdf&toc=0&tpl=$match$quer'>";
                   $renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/pdfbutton.php?text='.$match.'"></a></div>';
               }
           }

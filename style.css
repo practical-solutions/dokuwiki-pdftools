@@ -14,6 +14,18 @@
 	border-color:white;
 }
 
+.wrap_formular2 table td, .wrap_formular2 table tr,.wrap_formular2 table {
+	border-bottom:1px solid red;
+	border-top:0px;
+	border-left:0px;
+	border-right:0px;
+}
+
+.wrap_platz table td {
+	padding-top:12px;
+	padding-bottom:12px;
+}
+
 .wrap_bigtext {font-size:115%;}
 
 .wrap_smalltext {font-size:90%;}
