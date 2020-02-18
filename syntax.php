@@ -59,6 +59,12 @@ class syntax_plugin_pdftools extends DokuWiki_Syntax_Plugin {
     function connectTo($mode) {
         $this->Lexer->addEntryPattern('<pdf (?=.*?>)',$mode,'plugin_pdftools');
         $this->Lexer->addSpecialPattern('<etikett>',$mode,'plugin_pdftools');
+		$this->Lexer->addSpecialPattern('<abstand1>',$mode,'plugin_pdftools');		
+		$this->Lexer->addSpecialPattern('<abstand2>',$mode,'plugin_pdftools');
+		$this->Lexer->addSpecialPattern('<abstand3>',$mode,'plugin_pdftools');
+		$this->Lexer->addSpecialPattern('<quer1>',$mode,'plugin_pdftools');
+		$this->Lexer->addSpecialPattern('<quer2>',$mode,'plugin_pdftools');
+		$this->Lexer->addSpecialPattern('<quer3>',$mode,'plugin_pdftools');
     }
 
 
@@ -68,8 +74,8 @@ class syntax_plugin_pdftools extends DokuWiki_Syntax_Plugin {
 
 
     /* Handle the match */
-    function handle($match, $state, $pos, Doku_Handler $handler){
-       return array($state,$match);
+    function handle($match, $state, $pos, Doku_Handler $handler){	
+		return array($state,$match);
     }
 
 
@@ -78,14 +84,22 @@ class syntax_plugin_pdftools extends DokuWiki_Syntax_Plugin {
         global $ID;
         if($format != 'xhtml') return false;
 
-        $match = $data[0];
-        list($state, $match) = $data;
+		$match = $data[0];
+		list($state, $match) = $data;
+		
+		if ($match=='<abstand1>') {$renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/img/line.php?h=1">';return true;}
+		if ($match=='<abstand2>') {$renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/img/line.php?h=3">';return true;}
+		if ($match=='<abstand3>') {$renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/img/line.php?h=5">';return true;}
+		
+		if ($match=='<quer1>') {$renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/img/line.php?h=1&q">';return true;}
+		if ($match=='<quer2>') {$renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/img/line.php?h=3&q">';return true;}
+		if ($match=='<quer3>') {$renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/img/line.php?h=5&q">';return true;}
+		
 
         if ($match=='<etikett>') {
-          $renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/etikett.png">';
+          $renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/img/etikett.png">';
           return true;
         }
-
 
         if (!$this->dw2pdf_inst) {
     			$renderer->doc .= '<i class="noprint">Plugin <u>dw2pdf</u> benötigt.</i><br>';
@@ -108,7 +122,7 @@ class syntax_plugin_pdftools extends DokuWiki_Syntax_Plugin {
               } else {
                   $renderer->doc .= "<div class='noprint'>
                                     <a href='doku.php?id=$ID&do=export_pdf&toc=0&tpl=$match$quer'>";
-                  $renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/pdfbutton.php?text='.$match.'"></a></div>';
+                  $renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/img/pdfbutton.php?text='.$match.'"></a></div>';
               }
           }
 
