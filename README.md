@@ -53,11 +53,11 @@ Ist das wrap-Plugin installiert, so kann man folgende zusätzliche wrap-Klassen 
 
 ## Abstandshalter für leere Tabellenzellen
 
-  | <abstand1> | Test |
-  | <abstand2> | Test |
-  | <abstand3> | Test |
+    | <abstand1> | Test |
+    | <abstand2> | Test |
+    | <abstand3> | Test |
   
-  | Test | <quer1> | <quer2> | <quer3> |
+    | Test | <quer1> | <quer2> | <quer3> |
 
 Diese Tags sind insb. für Tabellen gedacht und sorgen für einen vertikalen Mindestabstand (bei leeren Zeilen).
 
@@ -65,8 +65,8 @@ Diese Tags sind insb. für Tabellen gedacht und sorgen für einen vertikalen Min
 
 Das pdfTools-Plugin enthält jetzt ein Paket an Vorlagen, welches über den Adminbereich installiert werden können. Im Rahmen des Vorlagenpaket sind zwei Vorlagen-Replacements hinzugefügt worden:
   
-  @AUTHOR@ - Name des Autors
-  @COMPANY@ - Name des Unternehmens, welches in den Einstellungen festgelegt werden kann.
+    @AUTHOR@ - Name des Autors
+    @COMPANY@ - Name des Unternehmens, welches in den Einstellungen festgelegt werden kann.
 
 ## Ausblick
 Funktionen, welche in kommenden Versionen dazukommen sollen:
