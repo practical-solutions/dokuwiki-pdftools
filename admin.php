@@ -10,7 +10,7 @@ require_once(DOKU_INC . 'lib/plugins/pdftools/functions.php');
 
 class admin_plugin_pdftools extends DokuWiki_Admin_Plugin {
      
-    var $output = '';
+    var $output = 'COMMAND: none';
     
 	function getMenuText(){
 		return "Vorlagen für den PDF-Generator";
@@ -21,13 +21,13 @@ class admin_plugin_pdftools extends DokuWiki_Admin_Plugin {
     */
     function handle() {
 		
-		# Check if dw2pdf is activated
+		# Check if dw2pdf is activated	
 		$list = plugin_list();
-  		if(in_array('dw2pdf',$list)!==false) return;
+  		if(in_array('dw2pdf',$list)===false) return;
   		
 		if (!isset($_REQUEST['cmd'])) return;   // first time - nothing to do
 		
-		$this->output = 'invalid: '.key($_REQUEST['cmd']);
+		
         if (!checkSecurityToken()) return;
         if (!is_array($_REQUEST['cmd'])) return;
      
@@ -49,7 +49,9 @@ class admin_plugin_pdftools extends DokuWiki_Admin_Plugin {
     * output appropriate html
     */
     function html() {
-        ptln('<code>'.htmlspecialchars($this->output).'</code>');
+		global $ID;
+		
+        
      
         ptln('<form action="'.wl($ID).'" method="post">');
      
@@ -132,6 +134,8 @@ class admin_plugin_pdftools extends DokuWiki_Admin_Plugin {
 		
 		ptln ('</table>');
         ptln('</form>');
+        
+        ptln('<br><code>'.htmlspecialchars($this->output).'</code>');
 		
     }
      
