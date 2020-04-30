@@ -34,3 +34,11 @@
 .wrap_smalltext {
     font-size:90%;
 }
+
+.wrap_bigtext td, .wrap_bigtext th {
+	font-size:130%;
+}
+
+.wrap_smalltext td, .wrap_smalltext th {
+	font-size:80%;
+}

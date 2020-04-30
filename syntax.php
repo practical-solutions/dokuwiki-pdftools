@@ -121,7 +121,7 @@ class syntax_plugin_pdftools extends DokuWiki_Syntax_Plugin {
                   $renderer->doc .= "<div class='noprint boxed'>$msg</div>";
               } else {
                   $renderer->doc .= "<div class='noprint'>
-                                    <a href='doku.php?id=$ID&do=export_pdf&toc=0&tpl=$match$quer'>";
+                                    <a href='doku.php?id=$ID&do=export_pdf&toc=0&tpl=$match$quer&rev=".($_GET['rev'])."'>";
                   $renderer->doc .= '<img src="'.DOKU_BASE.'lib/plugins/pdftools/img/pdfbutton.php?text='.$match.'"></a></div>';
               }
           }
