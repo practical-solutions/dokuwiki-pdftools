@@ -70,8 +70,9 @@ Das pdfTools-Plugin enthält jetzt ein Paket an Vorlagen, welches über den Admi
 
 ## Ausblick
 Funktionen, welche in kommenden Versionen dazukommen sollen:
-* **Erledigt**: Mehrere dw2pdf templates
-* **Erledigt**: Eine Anzeige von vorhandenen Templates im Admin-Bereich
+* Abteilungsspezifisch einstellbar Tags
+  * Briefkopftexte, die per Tag in Vorlagen eingebaut werden könnten
+  * Abteilungsspezifische @COMPANY@-Tags, die man zentral einstellen könen
 * ggf. ein online Vorlageneditor
 * Löschen von Vorlagen
 * Hochladen von Vorlagen
