@@ -1,0 +1,18 @@
+table.pdfheader {
+	display:none;
+    
+}
+
+table.pdffooter {
+    display:none;
+}
+
+@page {
+	
+	margin:1cm 1.5cm 1cm 1.5cm; 
+	margin-header:0.5cm; 
+	margin-footer:0.5cm;
+}
+
+
+
