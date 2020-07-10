@@ -1,13 +1,6 @@
-/* ---------------------------------------------------------------------
-Gero Gothe - Version 1.2 / 2020-xx-xx
-
-Changelog:
-* 1.2 - Anpassung wrap_formular (Schriftgröße: 100%)
-      - Hinzufügen folgender Klassen:
-	       - wrap_maxtabelle
-		   - wrap_bigtext
-* 1.1 - Hinzufügen der WRAP-Klasse .wrap_formular für randlose Tabellen
---------------------------------------------------------------------- */
+h4, h5 {
+    margin-bottom:0px;
+}
   
 
 /*****************************/
