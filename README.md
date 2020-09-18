@@ -76,3 +76,9 @@ Funktionen, welche in kommenden Versionen dazukommen sollen:
 * ggf. ein online Vorlageneditor
 * Löschen von Vorlagen
 * Hochladen von Vorlagen
+
+## Kompatibilität
+
+Getestet mit
+* PHP **7.3**
+* Dokuwiki / **Hogfather**

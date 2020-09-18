@@ -12,7 +12,7 @@ class admin_plugin_pdftools extends DokuWiki_Admin_Plugin {
      
     var $output = 'COMMAND: none';
     
-	function getMenuText(){
+	function getMenuText($language){
 		return "Vorlagen für den PDF-Generator";
 	}
 	
