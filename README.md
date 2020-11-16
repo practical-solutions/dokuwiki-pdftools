@@ -5,6 +5,12 @@ This plugin is currently only available in german language. This will be improve
 ## Funktionen
 DokuWiki-Plugin, welches zusätzliche Funktionen für dw2pdf bereitstellt. Der Bedarf für diese Funktionen hat sich aus der Praxis im Intranet eines kleinen Unternehmens ergeben, bei der viele Anwender ohne technische Kenntnisse Beiträge schreiben.
 
+### Druckbutton
+
+In den Option können die Vorlagen in einen Druckbutton angezeigt werden. Dieser wird **nicht** auf der (Haupt-)Startseite angezeigt, auf anderen Startseiten kann
+eingestellt werden, ob er ausgeblendet werden soll.
+
+
 ### pdf-Tag
 
     <pdf Vorlagenbezeichnung>
@@ -35,17 +41,17 @@ Ist das wrap-Plugin installiert, so kann man folgende zusätzliche wrap-Klassen 
     Tabelle ohne Ränder
     | Beispiel | Okay |
     </WRAP>
-	
-	<WRAP formular2>
-	Tabelle nur mit Rand unterhalb der Zeilen
-	| Ein weiteres Beispiel | Test |
-	</WRAP>
-	
-	<WRAP platz>
-	Abstände zwischen den Zeilen einer Tabelle
-	| Test |
-	| Test |
-	</WRAP>
+
+    <WRAP formular2>
+    Tabelle nur mit Rand unterhalb der Zeilen
+    | Ein weiteres Beispiel | Test |
+    </WRAP>
+
+    <WRAP platz>
+    Abstände zwischen den Zeilen einer Tabelle
+    | Test |
+    | Test |
+    </WRAP>
 
     <wrap bigtext>Skaliert den Text auf 115%</wrap>
 
@@ -71,8 +77,6 @@ Das pdfTools-Plugin enthält jetzt ein Paket an Vorlagen, welches über den Admi
 
 ## Ausblick
 Funktionen, welche in kommenden Versionen dazukommen sollen:
-* **Erledigt**: Mehrere dw2pdf templates
-* **Erledigt**: Eine Anzeige von vorhandenen Templates im Admin-Bereich
 * ggf. ein online Vorlageneditor
 * Löschen von Vorlagen
 * Hochladen von Vorlagen
