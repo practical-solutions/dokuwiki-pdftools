@@ -26,8 +26,8 @@ class action_plugin_pdftools extends DokuWiki_Action_Plugin {
         
         if ($ID=="start") return;
         
-        $show_button = !$conf['plugin']['pdftools']['print hide'];
-        $hide_on_start = $conf['plugin']['pdftools']['print hide on start'];
+        $show_button = !$this->getConf("print hide");
+        $hide_on_start = $this->getConf("print hide on start");
         
         if ($hide_on_start==true && 
             strpos($ID,'start')!==false &&
@@ -55,7 +55,7 @@ class action_plugin_pdftools extends DokuWiki_Action_Plugin {
                             $match=true;
                         } else {$chosen="";$match=false;}
                         
-                        echo "<i>".($t[1])."</i><span class='pdftools_printButton$chosen' onclick=\"location.href='doku.php?id=".$ID."&do=export_pdf&toc=0&tpl=".($t[0])."&rev=".($_GET['rev'])."'\"><a style='color:".($match? "black":"white")."' href='doku.php?id=".$ID."&do=export_pdf&toc=0&tpl=".($t[0])."&rev=".($_GET['rev'])."'>".ucfirst($t[0])."</a></span><hr>";
+                        echo "<i>".($t[1])."</i><span class='pdftools_printButton$chosen' onclick=\"location.href='doku.php?id=".$ID."&do=export_pdf&toc=0&tpl=".($t[0])."&rev=".($_GET['rev'])."'\"><a style='color:white' href='doku.php?id=".$ID."&do=export_pdf&toc=0&tpl=".($t[0])."&rev=".($_GET['rev'])."'>".ucfirst($t[0])."</a></span><hr>";
                     }
                 }
             echo '</div>';
