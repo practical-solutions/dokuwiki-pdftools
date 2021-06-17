@@ -1,88 +1,119 @@
-# PDF-Tools
+# DokuWiki-Plugin: PDF-Tools
 
-This plugin is currently only available in german language. This will be improved in current versions.
+DokuWiki-plugin which offers addition functionality for the dw2pdf-plugin.
 
-## Funktionen
-DokuWiki-Plugin, welches zusätzliche Funktionen für dw2pdf bereitstellt. Der Bedarf für diese Funktionen hat sich aus der Praxis im Intranet eines kleinen Unternehmens ergeben, bei der viele Anwender ohne technische Kenntnisse Beiträge schreiben.
+## Features
 
-### Druckbutton
+* Optional and configurable slider button to chose a template for pdf-generation
+* Configurable pdf-generate button which can be placed in a page
+* A set of templates for different purposes which can be installed directly from the admin section
+* Upload your own templates in the admin section and option to remove templates
+* Additional wrap-containers and some additional syntax for formatting
+* Additional replacements which can be used in the templates
 
-In den Option können die Vorlagen in einen Druckbutton angezeigt werden. Dieser wird **nicht** auf der (Haupt-)Startseite angezeigt, auf anderen Startseiten kann
-eingestellt werden, ob er ausgeblendet werden soll.
+
+## Print Button
+
+Activate a print button (slider) which ist shown a the bottom right of the screen. You can configure the templates which are the display and can be chosen in order to generate a pdf.
+
+![](img/screenshot2.png)
+
+![](img/screenshot1.png)
 
 
-### pdf-Tag
+## Inline pdf button
 
-    <pdf Vorlagenbezeichnung>
-    <pdf Vorlagenbezeichnung quer>
+Use the ```<pdf>-Tag``` in a document to create an inline button. Pressing this button will generate a pdf with the defined template. Syntax:
 
-Erzeugt einen Button, um ein PDF mit der ausgewählten Vorlage zu generieren. Dabei handelt es sich um einen Link
-* toc = 0 (kein Inhaltsverzeichnis)
-* tpl = Vorlagenbezeichnung
-* orientation=landscape (wenn "quer" hinter den Vorlagennamen notiert wird)
-Aktuell wird eine Abbildung erzeugt, damit kein Text, welches in der Suche relevant ist, in das Dokument generiert wird.
+    <pdf template-name>
+    <pdf template-name quer>
 
-### etikett-Tag
+The option ```quer``` creates the pdf in landscape orientation (german word "quer" = horizontal)
+
+Standard parameters for the created pdf are
+* toc = 0 (no table of content)
+* tpl = ```template-name```
+* orientation=landscape (if the keyword ```quer``` is used)
+
+
+## etikett-Tag
 
     <etikett>
 
-Wird durch eine Abbildung ersetzt, welches in etwa die Größe eines (Klebe-)Etiketts besitzt. Dies erleichtert die Erstellung von Formularen für einfache Anwender.
+Inserts an image which is meant for printed documents, where a sticker is to be pasted on.
 
-## Zusätzliche wrap-container
+![](img/etikett.png)
 
-Ist das wrap-Plugin installiert, so kann man folgende zusätzliche wrap-Klassen verwenden:
+
+## Additional wrap containers
+
+If you have the wrap-plugin installed, you can use these addition classes:
 
     <WRAP maxtabelle>
-    Tabelle auf 100% Seitenbreite
-    | Inhalt | Noch ein Inhalt |
+    Table ist set to 100% width = same as tablewidth-option
+    | Content | Another content |
     </WRAP>
     
     <WRAP formular>
-    Tabelle ohne Ränder
-    | Beispiel | Okay |
+    Table without borders
+    | Example | Okay |
     </WRAP>
 
     <WRAP formular2>
-    Tabelle nur mit Rand unterhalb der Zeilen
-    | Ein weiteres Beispiel | Test |
+    Table with border only on the bottom of the lines
+    | Another example | Test |
     </WRAP>
 
     <WRAP platz>
-    Abstände zwischen den Zeilen einer Tabelle
+    Increases the padding of cells in a table
     | Test |
     | Test |
     </WRAP>
 
-    <wrap bigtext>Skaliert den Text auf 115%</wrap>
+    <wrap bigtext>Text scaled to 115%</wrap>
 
-    <wrap smalltext>Skaliert den Text auf 90%</wrap>
+    <wrap smalltext>Text scaled to 90%</wrap>
 
-## Abstandshalter für leere Tabellenzellen
+## Create spaces in empty tale cells
+
+Vertical space
 
     | <abstand1> | Test |
     | <abstand2> | Test |
     | <abstand3> | Test |
-  
+
+Horizontal space
+
     | Test | <quer1> | <quer2> | <quer3> |
 
-Diese Tags sind insb. für Tabellen gedacht und sorgen für einen vertikalen Mindestabstand (bei leeren Zeilen).
 
-## Vorlagenpaket
+## Set of templates
 
-Das pdfTools-Plugin enthält jetzt ein Paket an Vorlagen, welches über den Adminbereich installiert werden können. Im Rahmen des Vorlagenpaket sind zwei Vorlagen-Replacements hinzugefügt worden:
+The pdftools-plugin contains a set of templates which can be installed in the admin section. These templates contain additional replacements:
   
-    @AUTHOR@ - Name des Autors
-    @COMPANY@ - Name des Unternehmens, welches in den Einstellungen festgelegt werden kann.
-    @APPROVER@ - Name des freigebenden (benötigt Approve- und ApprovePlus-Plugin)
+    @AUTHOR@ - Name of the author
+    @COMPANY@ - Name of the company which can be configured
+    @APPROVER@ - Name of the approve (requires Approve- und ApprovePlus-Plugin)
 
-## Ausblick
-Funktionen, welche in kommenden Versionen dazukommen sollen:
-* ggf. ein online Vorlageneditor
-* Löschen von Vorlagen
-* Hochladen von Vorlagen
+## Upload pdf-templates
 
-## Kompatibilität
+Upload form for uploading your own pdf-templates.
 
-Getestet mit
+The template files must be placed in a directory, which must bei included in the zip-file. The files are extracted directly into the ```dw2pdf/tpl``` directory. This feature depends on the Linux ```unzip``` programme to work.
+
+## Erase pdf-templates
+
+Button to delete templates from dw2pdf.
+
+## Ideas for coming versions
+* online template editor
+* configurable GET-Parameters for the ```<pdf>```-Tag and the slider
+
+## Compatibility
+
+Tested with
 * PHP **7.3**
 * Dokuwiki / **Hogfather**
+* [Approve-Plugin](https://www.dokuwiki.org/plugin:approve) / **2021-02-17**
+* [dw2pdf / Modified Version](https://github.com/practical-solutions/dokuwiki-plugin-dw2pdf) / **2020-09-16**
+* [ApprovePlus-Plugin](https://github.com/practical-solutions/dokuwiki-plugin-approveplus) / **2020-11-23**
