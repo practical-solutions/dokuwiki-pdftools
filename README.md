@@ -74,7 +74,7 @@ If you have the wrap-plugin installed, you can use these addition classes:
 
     <wrap smalltext>Text scaled to 90%</wrap>
 
-## Create spaces in empty tale cells
+## Create spaces in empty table cells
 
 Vertical space
 
@@ -106,7 +106,7 @@ The template files must be placed in a directory, which must bei included in the
 Button to delete templates from dw2pdf.
 
 ## Ideas for coming versions
-* online template editor
+* online template editor or a configurable template, where setting can be made in the wiki
 * configurable GET-Parameters for the ```<pdf>```-Tag and the slider
 
 ## Compatibility

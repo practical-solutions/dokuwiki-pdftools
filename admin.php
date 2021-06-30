@@ -158,7 +158,7 @@ class admin_plugin_pdftools extends DokuWiki_Admin_Plugin {
             ptln ("</td>");
 
             if (file_exists(DOKU_PLUGIN."/dw2pdf/tpl/$v/preview.png")) {
-                ptln ('<td><img class="pdftools_preview" style="height:200px" src="'.DOKU_URL.'lib/plugins/pdftools/tpl/'.$v.'/preview.png"></td>');
+                ptln ('<td><img class="pdftools_preview" style="height:200px" src="'.DOKU_URL.'lib/plugins/dw2pdf/tpl/'.$v.'/preview.png"></td>');
             } else ptln("<td><i>".$this->getLang('text preview')."</i></td>");
 
             if (file_exists(DOKU_PLUGIN."/dw2pdf/tpl/$v/description.html")) {
